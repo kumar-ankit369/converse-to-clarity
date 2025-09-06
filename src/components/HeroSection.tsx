@@ -33,11 +33,18 @@ export const HeroSection = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button variant="hero" size="lg" className="group">
-                Start Free Trial
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <Button asChild variant="hero" size="lg" className="group">
+                <a href="/register">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
               </Button>
-              <Button variant="ghost" size="lg" className="text-white border-white/20 hover:bg-white/10">
+              <Button 
+                variant="ghost" 
+                size="lg" 
+                className="text-white border-white/20 hover:bg-white/10"
+                onClick={() => document.getElementById('demo-video')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 Watch Demo
               </Button>
             </div>

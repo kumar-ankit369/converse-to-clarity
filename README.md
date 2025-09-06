@@ -1,3 +1,12 @@
+## Development
+
+1. Copy `.env.example` to `.env` and set `MONGO_URI` and `JWT_SECRET`.
+2. Start backend: `npm run dev:backend`
+3. Start frontend: `npm run dev`
+4. Or run both: `npm run dev:full`
+
+Vite proxy forwards `/api/*` to `http://localhost:5000`.
+
 # Welcome to your Lovable project
 
 ## Project info
