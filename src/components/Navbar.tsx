@@ -7,7 +7,7 @@ const Navbar = () => {
   const [apiOk, setApiOk] = useState<boolean | null>(null)
 
   useEffect(() => {
-    fetch("/api/health")
+    fetch("http://localhost:5000/api/health")
       .then((r) => r.json())
       .then((d) => setApiOk(d?.status === "ok"))
       .catch(() => setApiOk(false))
@@ -22,7 +22,7 @@ const Navbar = () => {
           <Link to="/" className="font-semibold">Converse to Clarity</Link>
           <nav className="hidden md:flex items-center gap-4 text-sm text-muted-foreground">
             <Link to="/" className="hover:text-foreground">Home</Link>
-            <a href="https://github.com/kumar-ankit369/converse-to-clarity" target="_blank" rel="noreferrer" className="hover:text-foreground">GitHub</a>
+            <a href="https://github.com/kumar-ankit369/converse-to-clarity" target="_blank" rel="noopener noreferrer" className="hover:text-foreground">GitHub</a>
           </nav>
         </div>
         <div className="flex items-center gap-3">

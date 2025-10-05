@@ -1,6 +1,6 @@
 export type LoginResponse = { message: string; token: string }
 
-const base = ""
+const base = "http://localhost:5000"
 
 export async function apiHealth(): Promise<{ status: string }> {
   const res = await fetch(`${base}/api/health`)
