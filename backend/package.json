@@ -3,14 +3,20 @@
   "version": "1.0.0",
   "type": "commonjs",
   "main": "index.js",
+  "description": "Backend server for collaborative project management with real-time features",
   "scripts": {
     "start": "node index.js",
-    "dev": "node index.js",
+    "dev": "nodemon index.js",
     "test": "jest --runInBand --detectOpenHandles",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "test:users-search": "node scripts/test_users_search.js",
-    "test:invite-member": "node scripts/test_invite_member.js"
+    "test:invite-member": "node scripts/test_invite_member.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@sendgrid/mail": "^8.1.6",
     "express": "^5.1.0",
     "mongoose": "^8.18.0",
     "cors": "^2.8.5",
@@ -20,14 +26,36 @@
     "node-fetch": "^2.6.7",
     "multer": "^1.4.5-lts.1",
     "mongodb-memory-server": "^10.0.0",
-    "socket.io": "^4.8.1"
+    "socket.io": "^4.8.1",
+    "compression": "^1.7.4",
+    "express-rate-limit": "^6.10.0",
+    "express-slow-down": "^3.0.0",
+    "helmet": "^7.0.0",
+    "joi": "^17.9.2",
+    "moment": "^2.29.4",
+    "morgan": "^1.10.0",
+    "nodemailer": "^6.9.4"
   },
-  "description": "",
   "devDependencies": {
     "jest": "^29.0.0",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "nodemon": "^3.0.1",
+    "eslint": "^8.47.0",
+    "prettier": "^3.0.2"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "collaboration",
+    "project-management",
+    "real-time",
+    "socket.io"
+  ],
+  "author": "Ankit Kumar & Abhishek",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  }
 }
