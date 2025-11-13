@@ -6,12 +6,26 @@ import { SentimentChart } from "@/components/charts/SentimentChart"
 import { KnowledgeGraph } from "@/components/charts/KnowledgeGraph"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useAppSelector } from "@/store/hooks"
 
 export default function Dashboard() {
+  const user = useAppSelector((state) => state.auth.user)
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="flex-1 space-y-6 p-4 md:p-8 pt-6">
+        {/* Welcome Message */}
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">
+              Welcome back, {user?.name || 'User'}!
+            </h1>
+            <p className="text-muted-foreground">
+              Here's your communication clarity overview
+            </p>
+          </div>
+        </div>
         <Tabs defaultValue="overview" className="space-y-6">
           <TabsList className="grid w-full grid-cols-4">
             <TabsTrigger value="overview">Overview</TabsTrigger>

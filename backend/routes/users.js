@@ -125,4 +125,27 @@ router.get("/team", authMiddleware, async (req, res) => {
   }
 });
 
+// Search users by name or email (for invites)
+router.get('/search', authMiddleware, async (req, res) => {
+  try {
+    const q = (req.query.q || '').toString().trim();
+    if (!q) return res.json([]);
+
+    const regex = new RegExp(q.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&'), 'i');
+    const users = await User.find({
+      $or: [
+        { name: { $regex: regex } },
+        { email: { $regex: regex } },
+      ],
+    })
+      .select('name email profile.avatar')
+      .limit(20);
+
+    const result = users.map(u => ({ id: u._id, name: u.name, email: u.email, avatar: u.profile?.avatar }));
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to search users', details: err.message });
+  }
+});
+
 module.exports = router;
