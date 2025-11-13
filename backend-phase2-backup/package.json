@@ -1,0 +1,33 @@
+{
+  "name": "converse-to-clarity-backend",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "jest --runInBand --detectOpenHandles",
+    "test:users-search": "node scripts/test_users_search.js",
+    "test:invite-member": "node scripts/test_invite_member.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "mongoose": "^8.18.0",
+    "cors": "^2.8.5",
+    "bcryptjs": "^3.0.2",
+    "jsonwebtoken": "^9.0.2",
+    "dotenv": "^17.2.2",
+    "node-fetch": "^2.6.7",
+    "multer": "^1.4.5-lts.1",
+    "mongodb-memory-server": "^10.0.0",
+    "socket.io": "^4.8.1"
+  },
+  "description": "",
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "supertest": "^6.3.3"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
